@@ -7,3 +7,4 @@ class Traversier:
         self.capacitePersonne = capacitePersonne
         self.anneeFabrication = anneeFabrication
         self.dateMiseService = dateMiseService
+

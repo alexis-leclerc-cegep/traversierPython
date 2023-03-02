@@ -1,0 +1,9 @@
+<root>
+  <traversier>
+    <nom>Jean</nom>
+    <capaciteVehicule>6</capaciteVehicule>
+    <capacitePersonne>3</capacitePersonne>
+    <anneeFabrication>2023-03-07</anneeFabrication>
+    <dateMiseService>2023-03-21</dateMiseService>
+  </traversier>
+</root>
