@@ -15,7 +15,6 @@ class EmailLineEdit(QLineEdit):
         self.setValidator(validator)
 
     def focusOutEvent(self, event):
-        print("focus out")
         input_text = self.text()
         if self.validator().validate(input_text, 0)[0] != QValidator.Acceptable:
             # make gui alert message

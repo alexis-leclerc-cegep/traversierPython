@@ -114,7 +114,6 @@ class TabEmployeController:
         root = tree.getroot()
         employes = ET.SubElement(root, 'employes')
         for employe in self.model.getAll():
-            print(employe.ville)
             employe_xml = ET.SubElement(employes, 'employe')
             ET.SubElement(employe_xml, 'nom').text = employe.nom
             ET.SubElement(employe_xml, 'adresse').text = employe.adresse

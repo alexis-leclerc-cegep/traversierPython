@@ -34,5 +34,18 @@
       <dateEmbauche>2023-07-03</dateEmbauche>
       <dateArret>2023-03-03</dateArret>
     </employe>
+    <employe>
+      <nom>Jean Valjean</nom>
+      <adresse>38 rrfeiaswu</adresse>
+      <ville>890-124</ville>
+      <province>Alberta</province>
+      <codePostal>9 0e8</codePostal>
+      <telephone>-230-</telephone>
+      <courriel>-40-23irkowe@gmail.com</courriel>
+      <noEmploye>234u901</noEmploye>
+      <NAS>248 901 390</NAS>
+      <dateEmbauche>2023-03-03</dateEmbauche>
+      <dateArret>2023-03-03</dateArret>
+    </employe>
   </employes>
 </root>
