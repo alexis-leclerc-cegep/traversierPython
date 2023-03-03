@@ -16,6 +16,5 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def closeEvent(self, event):
         self.tabTraversier.closeEvent(event)
-        # self.tabEmploye.closeEvent(event)
         event.accept()
 

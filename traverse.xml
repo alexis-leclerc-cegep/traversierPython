@@ -9,16 +9,29 @@
   </traversier>
   <employes>
     <employe>
-      <nom>fsdafds</nom>
-      <adresse>2381009321</adresse>
-      <ville>890231</ville>
+      <nom>Jacob Charenure</nom>
+      <adresse>45 rue des Tilleuls</adresse>
+      <ville>Rivière-de-la-Bière</ville>
       <province>Québec</province>
-      <codePostal>1 23</codePostal>
+      <codePostal>G4R 1A9</codePostal>
       <telephone>349-012-8239</telephone>
-      <courriel>238901ueiqwo@gmail.com</courriel>
-      <noEmploye>2381903901</noEmploye>
-      <NAS>123 908 </NAS>
+      <courriel>joe@gmail.com</courriel>
+      <noEmploye>2</noEmploye>
+      <NAS>123 908 222</NAS>
       <dateEmbauche>2023-03-03</dateEmbauche>
+      <dateArret>2023-03-03</dateArret>
+    </employe>
+    <employe>
+      <nom>Pistache Piston</nom>
+      <adresse>22 rue des Tilleuls</adresse>
+      <ville>Rivière-de-la-Carrière</ville>
+      <province>Québec</province>
+      <codePostal>G4R 1A8</codePostal>
+      <telephone>444-444-4444</telephone>
+      <courriel>jean@gmail.com</courriel>
+      <noEmploye>3</noEmploye>
+      <NAS>444 444 444</NAS>
+      <dateEmbauche>2023-07-03</dateEmbauche>
       <dateArret>2023-03-03</dateArret>
     </employe>
   </employes>

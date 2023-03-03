@@ -22,9 +22,12 @@ class TabEmployeController:
 
         self.model = EmployeListModel()
 
+        self.charger()
+
         self.listViewEmployes = tab_widget.findChild(QListView, 'listViewEmployes')
 
         self.listViewEmployes.setModel(self.model)
+        self.listViewEmployes.selectionModel().selectionChanged.connect(self.selectionChanged)
 
         self.edtNomEmploye = tab_widget.findChild(QLineEdit, 'edtNomEmploye')
         self.edtAdresseEmploye = tab_widget.findChild(QLineEdit, 'edtAdresseEmploye')
@@ -63,15 +66,50 @@ class TabEmployeController:
         except Exception as e:
             print(e)
 
+    def selectionChanged(self, selected, deselected):
+        if len(selected.indexes()) > 0:
+            employe = self.model.get(selected.indexes()[0].row())
+            self.edtNomEmploye.setText(employe.nom)
+            self.edtAdresseEmploye.setText(employe.adresse)
+            self.edtVilleEmploye.setText(employe.ville)
+            self.cbxProvince.setCurrentText(employe.province)
+            self.edtCodePostal.setText(employe.codePostal)
+            self.edtTelephone.setText(employe.telephone)
+            self.edtCourriel.setText(employe.courriel)
+            self.edtNoEmploye.setText(employe.noEmploye)
+            self.edtNAS.setText(employe.NAS)
+            self.dtEmbauche.setDate(employe.dateEmbauche)
+            self.dtArret.setDate(employe.dateArret)
+        else:
+            self.edtNomEmploye.setText("")
+            self.edtAdresseEmploye.setText("")
+            self.edtVilleEmploye.setText("")
+            self.cbxProvince.setCurrentText("")
+            self.edtCodePostal.setText("")
+            self.edtTelephone.setText("")
+            self.edtCourriel.setText("")
+            self.edtNoEmploye.setText("")
+            self.edtNAS.setText("")
+            self.dtEmbauche.setDate(QDate.currentDate())
+            self.dtArret.setDate(QDate.currentDate())
+
+
     def charger(self):
         tree = ET.parse(config.xmlpath)
         root = tree.getroot()
 
-        employes = root.findall('employes')
+        employes = root.findall('./employes/employe')
         for employe in employes:
-            print("nom")
+            self.model.ajouter(
+                Employe(employe.find('nom').text, employe.find('adresse').text, employe.find('ville').text,
+                        employe.find('province').text, employe.find('codePostal').text, employe.find('telephone').text,
+                        employe.find('courriel').text, employe.find('noEmploye').text, employe.find('NAS').text,
+                        datetime.datetime.strptime(employe.find('dateEmbauche').text, "%Y-%m-%d").date(),
+                        datetime.datetime.strptime(employe.find('dateArret').text, "%Y-%m-%d").date()))
+
         self.model.layoutChanged.emit()
 
+"""
     def closeEvent(self, event):
         tree = ET.parse(config.xmlpath)
         root = tree.getroot()
@@ -93,3 +131,4 @@ class TabEmployeController:
         ET.indent(tree)
         tree.write(config.xmlpath, encoding="utf-8", xml_declaration=True)
         event.accept()
+"""

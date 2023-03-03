@@ -33,7 +33,6 @@ class EmployeListModel(QtCore.QAbstractListModel):
         return len(self.employes)
 
     def ajouter(self, employe):
-        print("ajouter dans modele")
         self.beginInsertRows(QtCore.QModelIndex(), len(self.employes), len(self.employes))
         self.employes.append(employe)
         self.endInsertRows()
