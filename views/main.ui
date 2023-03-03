@@ -298,6 +298,27 @@
          </item>
         </widget>
        </item>
+	   <item>
+			<widget class="QLineEdit" name="edtCodePostal"/>
+		</item>
+		<item>
+			<widget class="QLineEdit" name="edtTelephone"/>
+		</item>
+		<item>
+			<widget class="QLineEdit" name="edtCourriel"/>
+		</item>
+		<item>
+			<widget class="QLineEdit" name="edtNoEmploye"/>
+		</item>
+		<item>
+			<widget class="QLineEdit" name="edtNAS"/>
+		</item>
+		<item>
+			<widget class="QDateTimeEdit" name="dtEmbauche"/>
+		</item>
+		<item>
+			<widget class="QDateTimeEdit" name="dtArret"/>
+		</item>
       </layout>
      </widget>
      <widget class="QWidget" name="verticalLayoutWidget_2">
