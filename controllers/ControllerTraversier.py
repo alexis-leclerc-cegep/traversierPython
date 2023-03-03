@@ -73,7 +73,7 @@ class TabTraversierController:
         # get its hash and check if its the same as file already on disk
         # if not, save it
 
-        tree.write(config.xmlpath)
+        tree.write(config.xmlpath, encoding="utf-8", xml_declaration=True)
         print("Saved")
 
 

@@ -200,7 +200,7 @@
      <attribute name="title">
       <string>Employé</string>
      </attribute>
-     <widget class="QListView" name="listView">
+     <widget class="QListView" name="listViewEmployes">
       <property name="geometry">
        <rect>
         <x>590</x>

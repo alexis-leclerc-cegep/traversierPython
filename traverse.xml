@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
 <root>
   <traversier>
     <nom>Jean</nom>
@@ -6,4 +7,19 @@
     <anneeFabrication>2023-03-07</anneeFabrication>
     <dateMiseService>2023-03-21</dateMiseService>
   </traversier>
+  <employes>
+    <employe>
+      <nom>fsdafds</nom>
+      <adresse>2381009321</adresse>
+      <ville>890231</ville>
+      <province>Québec</province>
+      <codePostal>1 23</codePostal>
+      <telephone>349-012-8239</telephone>
+      <courriel>238901ueiqwo@gmail.com</courriel>
+      <noEmploye>2381903901</noEmploye>
+      <NAS>123 908 </NAS>
+      <dateEmbauche>2023-03-03</dateEmbauche>
+      <dateArret>2023-03-03</dateArret>
+    </employe>
+  </employes>
 </root>

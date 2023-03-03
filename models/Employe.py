@@ -13,7 +13,7 @@ class Employe(Personne):
         self.dateArret = dateArret
 
     def __str__(self):
-        return self.nom + " " + self.noEmploye
+        return str(self.noEmploye) + " " + self.nom
 
 class EmployeListModel(QtCore.QAbstractListModel):
     def __init__(self, employes=None, parent=None):
@@ -33,6 +33,7 @@ class EmployeListModel(QtCore.QAbstractListModel):
         return len(self.employes)
 
     def ajouter(self, employe):
+        print("ajouter dans modele")
         self.beginInsertRows(QtCore.QModelIndex(), len(self.employes), len(self.employes))
         self.employes.append(employe)
         self.endInsertRows()
