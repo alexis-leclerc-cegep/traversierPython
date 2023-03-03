@@ -78,5 +78,5 @@ class TabTraversierController:
 
 
     def closeEvent(self, event):
-        # self.enregistrer()
+        self.enregistrer()
         event.accept()

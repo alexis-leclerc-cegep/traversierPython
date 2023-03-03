@@ -58,6 +58,7 @@ class EmployeListModel(QtCore.QAbstractListModel):
         self.endResetModel()
 
     def getAll(self):
+        print("get all")
         return self.employes
 
 

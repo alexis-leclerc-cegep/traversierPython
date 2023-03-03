@@ -109,12 +109,12 @@ class TabEmployeController:
 
         self.model.layoutChanged.emit()
 
-"""
     def closeEvent(self, event):
         tree = ET.parse(config.xmlpath)
         root = tree.getroot()
         employes = ET.SubElement(root, 'employes')
         for employe in self.model.getAll():
+            print(employe.ville)
             employe_xml = ET.SubElement(employes, 'employe')
             ET.SubElement(employe_xml, 'nom').text = employe.nom
             ET.SubElement(employe_xml, 'adresse').text = employe.adresse
@@ -128,7 +128,8 @@ class TabEmployeController:
             ET.SubElement(employe_xml, 'dateEmbauche').text = employe.dateEmbauche.strftime("%Y-%m-%d")
             ET.SubElement(employe_xml, 'dateArret').text = employe.dateArret.strftime("%Y-%m-%d")
 
+        tree = ET.ElementTree(root)
+
         ET.indent(tree)
         tree.write(config.xmlpath, encoding="utf-8", xml_declaration=True)
         event.accept()
-"""
