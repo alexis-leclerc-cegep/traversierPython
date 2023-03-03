@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabTraversier">
      <property name="accessibleName">
@@ -200,6 +200,146 @@
      <attribute name="title">
       <string>Employé</string>
      </attribute>
+     <widget class="QListView" name="listView">
+      <property name="geometry">
+       <rect>
+        <x>605</x>
+        <y>0</y>
+        <width>261</width>
+        <height>501</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>20</y>
+        <width>164</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLineEdit" name="edtNomEmploye"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="edtAdresseEmploye"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="edtVilleEmploye"/>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBox">
+         <item>
+          <property name="text">
+           <string>Alberta</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>British Columbia</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Manitoba</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>New Brunswick</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Newfoundland and Labrador</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Northwest Territories</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nova Scotia</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nunavut</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Ontario</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Prince Edward Island</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Québec</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Saskatchewan</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Yukon</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>20</y>
+        <width>81</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>Nom complet</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Adresse</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Ville</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Province</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
   </widget>
