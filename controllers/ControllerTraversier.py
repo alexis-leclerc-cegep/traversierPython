@@ -69,6 +69,11 @@ class TabTraversierController:
         dateMiseService.text = str(self.calMiseService.date().toPyDate())
         tree = ET.ElementTree(root)
         ET.indent(tree)
+
+        # get its hash and check if its the same as file already on disk
+        # if not, save it
+        print(ET.tostring(tree))
+
         tree.write(config.xmlpath)
         print("Saved")
 
