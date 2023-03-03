@@ -10,26 +10,6 @@ import xml.etree.ElementTree as ET
 import re
 
 
-class EmailLineEdit(QLineEdit):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-
-        print("init")
-        validator = QRegularExpressionValidator(QtCore.QRegularExpression(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"), self)
-        self.setValidator(validator)
-
-    def focusInEvent(self, event):
-        print("focus in")
-        super().focusInEvent(event)
-
-    def focusOutEvent(self, event):
-        print("focus out")
-        input_text = self.text()
-        if self.validator().validate(input_text, 0)[0] != QValidator.Acceptable:
-            print("Invalid email address")
-
-        super().focusOutEvent(event)
-
 
 
 
@@ -49,7 +29,6 @@ class TabEmployeController:
         self.edtTelephone = tab_widget.findChild(QLineEdit, 'edtTelephone')
 
         self.edtCourriel = tab_widget.findChild(QLineEdit, 'edtCourriel')
-        self.edtCourriel.setModel(EmailLineEdit())
 
         self.edtNoEmploye = tab_widget.findChild(QLineEdit, 'edtNoEmploye')
         self.edtNAS = tab_widget.findChild(QLineEdit, 'edtNAS')

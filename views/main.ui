@@ -305,7 +305,7 @@
         <widget class="QLineEdit" name="edtTelephone"/>
        </item>
        <item>
-        <widget class="QLineEdit" name="edtCourriel"/>
+        <widget class="EmailLineEdit" name="edtCourriel"/>
        </item>
        <item>
         <widget class="QLineEdit" name="edtNoEmploye"/>
@@ -459,6 +459,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>EmailLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>validation.LineEdits</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
