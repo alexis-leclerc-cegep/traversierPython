@@ -17,12 +17,23 @@ import re
 class TabEmployeController:
     def __init__(self, tab_widget):
         self.tab_widget = tab_widget
-        self.btnAjouter = tab_widget.findChild(QPushButton, 'btnAjouter')
-        self.btnAjouter.clicked.connect(self.ajouter)
 
         self.model = EmployeListModel()
 
         self.charger()
+
+        self.btnAjouter = tab_widget.findChild(QPushButton, 'btnAjouterEmploye')
+        self.btnAjouter.clicked.connect(self.ajouter)
+
+        self.btnClasser = tab_widget.findChild(QPushButton, 'btnClasserEmploye')
+        self.btnClasser.clicked.connect(self.classer)
+
+        self.btnModifier = tab_widget.findChild(QPushButton, 'btnModifierEmploye')
+        self.btnModifier.clicked.connect(self.modifier)
+
+        self.btnNouveau = tab_widget.findChild(QPushButton, 'btnNouveauEmploye')
+        self.btnNouveau.clicked.connect(self.nouveau)
+
 
         self.listViewEmployes = tab_widget.findChild(QListView, 'listViewEmployes')
 
@@ -38,7 +49,8 @@ class TabEmployeController:
 
         self.edtCourriel = tab_widget.findChild(QLineEdit, 'edtCourriel')
 
-        self.edtNoEmploye = tab_widget.findChild(QLineEdit, 'edtNoEmploye')
+        self.sbxNoEmploye = tab_widget.findChild(QSpinBox, 'sbxNoEmploye')
+
         self.edtNAS = tab_widget.findChild(QLineEdit, 'edtNAS')
         self.dtEmbauche = tab_widget.findChild(QDateEdit, 'dtEmbauche')
         self.dtArret = tab_widget.findChild(QDateEdit, 'dtArret')
@@ -53,13 +65,37 @@ class TabEmployeController:
     def displayError(self, error):
         print(error)
 
+    def nouveau(self):
+        try:
+            self.clearInputs()
+            self.sbxNoEmploye.readonly = False
+            self.listViewEmployes.clearSelection()
+        except Exception as e:
+            print(e)
+
+    def classer(self):
+        self.model.classer()
+        self.model.layoutChanged.emit()
+
+    def modifier(self):
+        try:
+            self.model.modifier(
+                Employe(self.edtNomEmploye.text(), self.edtAdresseEmploye.text(), self.edtVilleEmploye.text(),
+                        self.cbxProvince.currentText(), self.edtCodePostal.text(), self.edtTelephone.text(),
+                        self.edtCourriel.text(), self.sbxNoEmploye.value(), self.edtNAS.text(),
+                        self.dtEmbauche.date().toPyDate(), self.dtArret.date().toPyDate()))
+
+            self.model.layoutChanged.emit()
+        except Exception as e:
+            print(e)
+
     def ajouter(self):
         print("ajouter")
         try:
             self.model.ajouter(
                 Employe(self.edtNomEmploye.text(), self.edtAdresseEmploye.text(), self.edtVilleEmploye.text(),
                         self.cbxProvince.currentText(), self.edtCodePostal.text(), self.edtTelephone.text(),
-                        self.edtCourriel.text(), self.edtNoEmploye.text(), self.edtNAS.text(),
+                        self.edtCourriel.text(), self.sbxNoEmploye.value(), self.edtNAS.text(),
                         self.dtEmbauche.date().toPyDate(), self.dtArret.date().toPyDate()))
 
             self.model.layoutChanged.emit()
@@ -67,32 +103,39 @@ class TabEmployeController:
             print(e)
 
     def selectionChanged(self, selected, deselected):
-        if len(selected.indexes()) > 0:
-            employe = self.model.get(selected.indexes()[0].row())
-            self.edtNomEmploye.setText(employe.nom)
-            self.edtAdresseEmploye.setText(employe.adresse)
-            self.edtVilleEmploye.setText(employe.ville)
-            self.cbxProvince.setCurrentText(employe.province)
-            self.edtCodePostal.setText(employe.codePostal)
-            self.edtTelephone.setText(employe.telephone)
-            self.edtCourriel.setText(employe.courriel)
-            self.edtNoEmploye.setText(employe.noEmploye)
-            self.edtNAS.setText(employe.NAS)
-            self.dtEmbauche.setDate(employe.dateEmbauche)
-            self.dtArret.setDate(employe.dateArret)
-        else:
-            self.edtNomEmploye.setText("")
-            self.edtAdresseEmploye.setText("")
-            self.edtVilleEmploye.setText("")
-            self.cbxProvince.setCurrentText("")
-            self.edtCodePostal.setText("")
-            self.edtTelephone.setText("")
-            self.edtCourriel.setText("")
-            self.edtNoEmploye.setText("")
-            self.edtNAS.setText("")
-            self.dtEmbauche.setDate(QDate.currentDate())
-            self.dtArret.setDate(QDate.currentDate())
+        try:
+            if len(selected.indexes()) > 0:
+                employe = self.model.get(selected.indexes()[0].row())
+                self.edtNomEmploye.setText(employe.nom)
+                self.edtAdresseEmploye.setText(employe.adresse)
+                self.edtVilleEmploye.setText(employe.ville)
+                self.cbxProvince.setCurrentText(employe.province)
+                self.edtCodePostal.setText(employe.codePostal)
+                self.edtTelephone.setText(employe.telephone)
+                self.edtCourriel.setText(employe.courriel)
+                self.sbxNoEmploye.setValue(int(employe.noEmploye))
+                self.sbxNoEmploye.readonly = True
+                self.edtNAS.setText(employe.NAS)
+                self.dtEmbauche.setDate(employe.dateEmbauche)
+                self.dtArret.setDate(employe.dateArret)
+            else:
+                self.clearInputs()
+        except Exception as e:
+            print(e)
 
+
+    def clearInputs(self):
+        self.edtNomEmploye.setText("")
+        self.edtAdresseEmploye.setText("")
+        self.edtVilleEmploye.setText("")
+        self.cbxProvince.setCurrentText("")
+        self.edtCodePostal.setText("")
+        self.edtTelephone.setText("")
+        self.edtCourriel.setText("")
+        self.sbxNoEmploye.setValue(0)
+        self.edtNAS.setText("")
+        self.dtEmbauche.setDate(QDate.currentDate())
+        self.dtArret.setDate(QDate.currentDate())
 
     def charger(self):
         tree = ET.parse(config.xmlpath)

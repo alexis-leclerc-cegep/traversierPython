@@ -206,30 +206,110 @@
         <x>590</x>
         <y>0</y>
         <width>261</width>
-        <height>501</height>
+        <height>451</height>
        </rect>
       </property>
      </widget>
-     <widget class="QWidget" name="verticalLayoutWidget">
+     <widget class="QWidget" name="horizontalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>20</y>
-        <width>164</width>
-        <height>321</height>
+        <x>590</x>
+        <y>450</y>
+        <width>261</width>
+        <height>61</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLineEdit" name="edtNomEmploye"/>
+        <widget class="QPushButton" name="btnClasserEmploye">
+         <property name="text">
+          <string>Classer</string>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="edtAdresseEmploye"/>
+        <widget class="QPushButton" name="btnClearEmploye">
+         <property name="text">
+          <string>Tout supprimer</string>
+         </property>
+        </widget>
        </item>
-       <item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>311</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="6" column="1">
+        <widget class="QLineEdit" name="edtTelephone"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="lblNASEmploye">
+         <property name="text">
+          <string>NAS</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="edtNAS"/>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="sbxNoEmploye"/>
+       </item>
+       <item row="3" column="1">
         <widget class="QLineEdit" name="edtVilleEmploye"/>
        </item>
-       <item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="lblProvinceEmploye">
+         <property name="text">
+          <string>Province</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lblCodePostalEmploye">
+         <property name="text">
+          <string>Code Postal</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="EmailLineEdit" name="edtCourriel"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblAdresseEmploye">
+         <property name="text">
+          <string>Adresse</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QDateEdit" name="dtEmbauche">
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="edtNomEmploye"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="edtAdresseEmploye"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lblVilleEmploye">
+         <property name="text">
+          <string>Ville</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
         <widget class="QComboBox" name="cbxProvince">
          <item>
           <property name="text">
@@ -298,29 +378,52 @@
          </item>
         </widget>
        </item>
-       <item>
+       <item row="5" column="1">
         <widget class="QLineEdit" name="edtCodePostal"/>
        </item>
-       <item>
-        <widget class="QLineEdit" name="edtTelephone"/>
-       </item>
-       <item>
-        <widget class="EmailLineEdit" name="edtCourriel"/>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="edtNoEmploye"/>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="edtNAS"/>
-       </item>
-       <item>
-        <widget class="QDateEdit" name="dtEmbauche">
-         <property name="calendarPopup">
-          <bool>true</bool>
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblNoEmploye">
+         <property name="text">
+          <string>No. employé</string>
          </property>
         </widget>
        </item>
-       <item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblNomEmploye">
+         <property name="text">
+          <string>Nom complet</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="lblTelephoneEmploye">
+         <property name="text">
+          <string>Téléphone</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="lblCourrielEmploye">
+         <property name="text">
+          <string>Courriel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="lblDateEmbaucheEmploye">
+         <property name="text">
+          <string>Date d'embauche</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>Date d'arrêt</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
         <widget class="QDateEdit" name="dtArret">
          <property name="calendarPopup">
           <bool>true</bool>
@@ -329,114 +432,39 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="verticalLayoutWidget_2">
+     <widget class="QWidget" name="gridLayoutWidget_2">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>20</y>
-        <width>85</width>
-        <height>321</height>
+        <x>30</x>
+        <y>440</y>
+        <width>231</width>
+        <height>71</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QLabel" name="lblNomEmploye">
-         <property name="text">
-          <string>Nom complet</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblAdresseEmploye">
-         <property name="text">
-          <string>Adresse</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblVilleEmploye">
-         <property name="text">
-          <string>Ville</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblProvinceEmploye">
-         <property name="text">
-          <string>Province</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblCodePostalEmploye">
-         <property name="text">
-          <string>Code Postal</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblTelephoneEmploye">
-         <property name="text">
-          <string>Téléphone</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblCourrielEmploye">
-         <property name="text">
-          <string>Courriel</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblNoEmploye">
-         <property name="text">
-          <string>No. employé</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblNASEmploye">
-         <property name="text">
-          <string>NAS</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblDateEmbaucheEmploye">
-         <property name="text">
-          <string>Date d'embauche</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_17">
-         <property name="text">
-          <string>Date d'arrêt</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="gridLayoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>400</y>
-        <width>241</width>
-        <height>101</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout">
+      <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
-        <widget class="QPushButton" name="btnAjouter">
+        <widget class="QPushButton" name="btnAjouterEmploye">
          <property name="text">
           <string>Ajouter</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QPushButton" name="btnSupprimer">
+        <widget class="QPushButton" name="btnNouveauEmploye">
+         <property name="text">
+          <string>Nouveau</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="btnModifierEmploye">
+         <property name="text">
+          <string>Modifier</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="btnSupprimerEmploye">
          <property name="text">
           <string>Supprimer</string>
          </property>

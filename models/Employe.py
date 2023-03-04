@@ -52,6 +52,11 @@ class EmployeListModel(QtCore.QAbstractListModel):
     def set(self, index, employe):
         self.employes[index] = employe
 
+    def classer(self):
+        self.beginResetModel()
+        self.employes.sort(key=lambda employe: employe.nom)
+        self.endResetModel()
+
     def clear(self):
         self.beginResetModel()
         self.employes.clear()
