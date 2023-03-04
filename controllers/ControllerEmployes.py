@@ -5,7 +5,7 @@ from models.Employe import Employe, EmployeListModel
 from PyQt5.QtCore import pyqtSlot, QDateTime, QDate
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QMainWindow, QTabWidget, QPushButton, QSpinBox, QLineEdit, QCalendarWidget, QDateEdit, \
-    QComboBox, QListView
+    QComboBox, QListView, QMessageBox
 import config
 import xml.etree.ElementTree as ET
 import re
@@ -34,6 +34,11 @@ class TabEmployeController:
         self.btnNouveau = tab_widget.findChild(QPushButton, 'btnNouveauEmploye')
         self.btnNouveau.clicked.connect(self.nouveau)
 
+        self.btnSupprimer = tab_widget.findChild(QPushButton, 'btnSupprimerEmploye')
+        self.btnSupprimer.clicked.connect(self.supprimer)
+
+        self.btnClear = tab_widget.findChild(QPushButton, 'btnClearEmploye')
+        self.btnClear.clicked.connect(self.clear)
 
         self.listViewEmployes = tab_widget.findChild(QListView, 'listViewEmployes')
 
@@ -65,10 +70,33 @@ class TabEmployeController:
     def displayError(self, error):
         print(error)
 
+    def supprimer(self):
+        try:
+            for index in self.listViewEmployes.selectionModel().selectedIndexes():
+                self.model.supprimer(index.row())
+                self.model.layoutChanged.emit()
+        except Exception as e:
+            print(e)
+
+    def clear(self):
+        # afficher un message de confirmation
+        try:
+            messageBox = QMessageBox()
+            messageBox.setWindowTitle("Confirmation")
+            messageBox.setText("Voulez-vous vraiment supprimer tous les employés?")
+            messageBox.setIcon(QMessageBox.Warning)
+            messageBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+            reponse = messageBox.exec()
+
+            if reponse == QMessageBox.Yes:
+                self.model.clear()
+                self.model.layoutChanged.emit()
+        except Exception as e:
+            print(e)
+
     def nouveau(self):
         try:
             self.clearInputs()
-            self.sbxNoEmploye.readonly = False
             self.listViewEmployes.clearSelection()
         except Exception as e:
             print(e)
@@ -79,18 +107,17 @@ class TabEmployeController:
 
     def modifier(self):
         try:
-            self.model.modifier(
-                Employe(self.edtNomEmploye.text(), self.edtAdresseEmploye.text(), self.edtVilleEmploye.text(),
-                        self.cbxProvince.currentText(), self.edtCodePostal.text(), self.edtTelephone.text(),
-                        self.edtCourriel.text(), self.sbxNoEmploye.value(), self.edtNAS.text(),
-                        self.dtEmbauche.date().toPyDate(), self.dtArret.date().toPyDate()))
-
-            self.model.layoutChanged.emit()
+            employe = Employe(self.edtNomEmploye.text(), self.edtAdresseEmploye.text(), self.edtVilleEmploye.text(),
+                    self.cbxProvince.currentText(), self.edtCodePostal.text(), self.edtTelephone.text(),
+                    self.edtCourriel.text(), self.sbxNoEmploye.value(), self.edtNAS.text(),
+                    self.dtEmbauche.date().toPyDate(), self.dtArret.date().toPyDate())
+            for index in self.listViewEmployes.selectionModel().selectedIndexes():
+                self.model.modifier(index.row(), employe)
+                self.model.layoutChanged.emit()
         except Exception as e:
             print(e)
 
     def ajouter(self):
-        print("ajouter")
         try:
             self.model.ajouter(
                 Employe(self.edtNomEmploye.text(), self.edtAdresseEmploye.text(), self.edtVilleEmploye.text(),
@@ -106,6 +133,7 @@ class TabEmployeController:
         try:
             if len(selected.indexes()) > 0:
                 employe = self.model.get(selected.indexes()[0].row())
+                print(str(employe))
                 self.edtNomEmploye.setText(employe.nom)
                 self.edtAdresseEmploye.setText(employe.adresse)
                 self.edtVilleEmploye.setText(employe.ville)
@@ -114,7 +142,6 @@ class TabEmployeController:
                 self.edtTelephone.setText(employe.telephone)
                 self.edtCourriel.setText(employe.courriel)
                 self.sbxNoEmploye.setValue(int(employe.noEmploye))
-                self.sbxNoEmploye.readonly = True
                 self.edtNAS.setText(employe.NAS)
                 self.dtEmbauche.setDate(employe.dateEmbauche)
                 self.dtArret.setDate(employe.dateArret)
@@ -165,7 +192,7 @@ class TabEmployeController:
             ET.SubElement(employe_xml, 'codePostal').text = employe.codePostal
             ET.SubElement(employe_xml, 'telephone').text = employe.telephone
             ET.SubElement(employe_xml, 'courriel').text = employe.courriel
-            ET.SubElement(employe_xml, 'noEmploye').text = employe.noEmploye
+            ET.SubElement(employe_xml, 'noEmploye').text = str(employe.noEmploye)
             ET.SubElement(employe_xml, 'NAS').text = employe.NAS
             ET.SubElement(employe_xml, 'dateEmbauche').text = employe.dateEmbauche.strftime("%Y-%m-%d")
             ET.SubElement(employe_xml, 'dateArret').text = employe.dateArret.strftime("%Y-%m-%d")

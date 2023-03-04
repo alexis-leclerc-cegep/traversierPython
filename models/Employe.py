@@ -27,7 +27,8 @@ class EmployeListModel(QtCore.QAbstractListModel):
         employe = self.employes[index.row()]
 
         if role == Qt.DisplayRole: # fait comme toString
-            return employe.nom + ' ' + employe.noEmploye
+            return str(employe.noEmploye) + ' ' + employe.nom
+
 
     def rowCount(self, index) -> int:
         return len(self.employes)
@@ -37,9 +38,8 @@ class EmployeListModel(QtCore.QAbstractListModel):
         self.employes.append(employe)
         self.endInsertRows()
 
-    def modifier(self, index, employe):
+    def modifier(self, index: int, employe: Employe):
         self.employes[index] = employe
-        self.dataChanged.emit(index, index)
 
     def supprimer(self, index):
         self.beginRemoveRows(QtCore.QModelIndex(), index, index)

@@ -494,6 +494,33 @@
    <header>validation.LineEdits</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>sbxNoEmploye</tabstop>
+  <tabstop>edtNomEmploye</tabstop>
+  <tabstop>edtAdresseEmploye</tabstop>
+  <tabstop>edtVilleEmploye</tabstop>
+  <tabstop>cbxProvince</tabstop>
+  <tabstop>edtCodePostal</tabstop>
+  <tabstop>edtTelephone</tabstop>
+  <tabstop>edtCourriel</tabstop>
+  <tabstop>edtNAS</tabstop>
+  <tabstop>dtEmbauche</tabstop>
+  <tabstop>dtArret</tabstop>
+  <tabstop>btnAjouterEmploye</tabstop>
+  <tabstop>btnNouveauEmploye</tabstop>
+  <tabstop>btnModifierEmploye</tabstop>
+  <tabstop>btnSupprimerEmploye</tabstop>
+  <tabstop>btnClasserEmploye</tabstop>
+  <tabstop>btnClearEmploye</tabstop>
+  <tabstop>listViewEmployes</tabstop>
+  <tabstop>calAnneeFab</tabstop>
+  <tabstop>calMiseService</tabstop>
+  <tabstop>btnEnregistrer</tabstop>
+  <tabstop>edtNomTraversier</tabstop>
+  <tabstop>tabEmploye_2</tabstop>
+  <tabstop>sbxCapacitePersonne</tabstop>
+  <tabstop>sbxCapaciteVehicule</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

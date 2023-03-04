@@ -22,6 +22,46 @@
       <dateArret>2023-03-03</dateArret>
     </employe>
     <employe>
+      <nom>Alice Tremblay</nom>
+      <adresse>25 avenue des Champs-Élysées</adresse>
+      <ville>Montréal</ville>
+      <province>Québec</province>
+      <codePostal>H3Z 2Y7</codePostal>
+      <telephone>514-555-1234</telephone>
+      <courriel>alice.tremblay@example.com</courriel>
+      <noEmploye>5</noEmploye>
+      <NAS>987 654 321</NAS>
+      <dateEmbauche>2022-02-14</dateEmbauche>
+      <dateArret>2023-01-01</dateArret>
+    </employe>
+
+    <employe>
+      <nom>Jacques Tremblay</nom>
+      <adresse>123 rue de la Paix</adresse>
+      <ville>Montréal</ville>
+      <province>Québec</province>
+      <codePostal>H3C 5J5</codePostal>
+      <telephone>514-555-1234</telephone>
+      <courriel>jtremblay@gmail.com</courriel>
+      <noEmploye>1234</noEmploye>
+      <NAS>123 456 789</NAS>
+      <dateEmbauche>2022-01-01</dateEmbauche>
+      <dateArret>2022-12-31</dateArret>
+    </employe>
+    <employe>
+      <nom>Jean René</nom>
+      <adresse>920 Rue Des Poivres</adresse>
+      <ville>Joseph-sur-Mer</ville>
+      <province>Québec</province>
+      <codePostal>G0E 4E9</codePostal>
+      <telephone>382-910-8329</telephone>
+      <courriel>jean@enterprises.com</courriel>
+      <noEmploye>7</noEmploye>
+      <NAS>444 444 444</NAS>
+      <dateEmbauche>2023-07-03</dateEmbauche>
+      <dateArret>2023-03-03</dateArret>
+    </employe>
+    <employe>
       <nom>Jean Valjean</nom>
       <adresse>38 rrfeiaswu</adresse>
       <ville>890-124</ville>
@@ -35,7 +75,7 @@
       <dateArret>2023-03-03</dateArret>
     </employe>
     <employe>
-      <nom>Pistache Piston</nom>
+      <nom>Pistache Pisto</nom>
       <adresse>22 rue des Tilleuls</adresse>
       <ville>Rivière-de-la-Carrière</ville>
       <province>Québec</province>
